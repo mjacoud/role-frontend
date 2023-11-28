@@ -1,4 +1,4 @@
-'use client'
+/* 'use client'
 
 import { useRouter } from 'next/navigation'
 import { Container } from '../components/Container'
@@ -29,3 +29,4 @@ export const FavoriteEventsClient: React.FC<
     </Container>
   )
 }
+ */
