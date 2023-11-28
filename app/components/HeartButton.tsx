@@ -1,18 +1,17 @@
 'use client'
 
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
-import { useFavorite } from '../hooks/useFavorite'
 
 interface HeartButtonProps {
   eventId: string
 }
 
 export const HeartButton: React.FC<HeartButtonProps> = ({ eventId }) => {
-  const { hasFavorited, toggleFavorite } = useFavorite({ eventId })
+  /*   const { hasFavorited, toggleFavorite } = useFavorite({ eventId }) */
 
   return (
     <div
-      onClick={toggleFavorite}
+      /*  onClick={toggleFavorite} */
       className="relative
   cursor-pointer
   transition
@@ -24,7 +23,9 @@ export const HeartButton: React.FC<HeartButtonProps> = ({ eventId }) => {
       />
       <AiFillHeart
         size={24}
-        className={hasFavorited ? 'fill-amber-500' : 'fill-neutral-500/70'}
+        className={
+          /* hasFavorited ? 'fill-amber-500' :  */ 'fill-neutral-500/70'
+        }
       />
     </div>
   )
