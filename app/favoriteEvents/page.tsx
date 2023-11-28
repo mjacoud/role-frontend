@@ -1,4 +1,4 @@
-import { ClientOnly } from '../components/ClientOnly'
+/* import { ClientOnly } from '../components/ClientOnly'
 import { EmptyState } from '../components/EmptyState'
 import getCurrentUser from '../actions/getCurrentUser'
 import { FavoriteEventsClient } from './FavoriteEventsClient'
@@ -39,3 +39,4 @@ export default async function favoriteEvents() {
     </ClientOnly>
   )
 }
+ */
