@@ -18,7 +18,7 @@ const Home = ({ searchParams }: any) => {
     setIsLoading(true)
 
     axios
-      .post('http://localhost:3500/events', searchParams)
+      .post('https://role-backend.onrender.com/getEvents', searchParams)
       .then(response => {
         setEventsData(response.data)
       })
