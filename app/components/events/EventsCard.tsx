@@ -18,7 +18,7 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
   return (
     <div
       className="group col-span-1 cursor-pointer"
-      onClick={() => router.push(`/events/${data._id}`)}
+      onClick={() => router.push(`/getEventById/${data._id}`)}
     >
       <div className="flex w-full flex-col gap-2">
         <div className="relative aspect-square w-full overflow-hidden rounded-xl">
