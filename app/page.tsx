@@ -21,6 +21,7 @@ const Home = ({ searchParams }: any) => {
       .post('https://role-backend.onrender.com/getEvents', searchParams)
       .then(response => {
         console.log(searchParams)
+        console.log(searchParams)
         setEventsData(response.data)
       })
       .catch(() => toast.error('Erro ao buscar eventos'))
