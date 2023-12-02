@@ -9,27 +9,54 @@ import { useEffect, useState } from 'react'
 import { Event } from './types'
 import toast from 'react-hot-toast'
 import { Loading } from './components/Loading'
+import { useSearchParams } from 'next/navigation'
 
 interface SearchParams {
-  category?: string
-  startDate?: string
-  endDate?: string
-  price?: number
-  radius?: number
-  coordenates?: string
+  endDate?: string | null
+  price?: number | null
+  startDate?: string | null
+  coordenates?: number[] | null
+  category?: string | null
 }
 
-const Home = ({ searchParams }: { searchParams: SearchParams }) => {
+const Home = () => {
   const [eventsData, setEventsData] = useState<Event[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const searchParams = useSearchParams()
+
+  console.log(parseUrlParams(searchParams.toString()))
+
+  function parseUrlParams(url: string): SearchParams {
+    const params = new URLSearchParams(url)
+
+    const endDate = params.get('endDate') || null
+    const price = params.get('price') || null
+    const startDate = params.get('startDate') || null
+    const coordenates = params.get('coordenates') || null
+
+    const coordenatesArray = coordenates
+      ? coordenates.split(',').map(Number)
+      : null
+
+    return {
+      endDate: endDate,
+      price: Number(price),
+      startDate: startDate,
+      coordenates: coordenatesArray
+    }
+  }
 
   const fetchEvents = () => {
     setIsLoading(true)
 
     axios
-      .post('https://role-backend.onrender.com/getEvents', searchParams)
+      .post(
+        'https://role-backend.onrender.com/getEvents',
+        parseUrlParams(searchParams.toString())
+      )
       .then(response => {
-        console.log(searchParams)
+        console.log(parseUrlParams(searchParams.toString()))
+        console.log(searchParams.toString())
         setEventsData(response.data)
       })
       .catch(() => toast.error('Erro ao buscar eventos'))
