@@ -59,7 +59,7 @@ export const SearchModal = () => {
 
     const url = qs.stringifyUrl(
       {
-        url: '/',
+        url: '/getEvents/',
         query: updatedQuery
       },
       { skipNull: true }
@@ -100,8 +100,6 @@ export const SearchModal = () => {
   }
 
   const handleDate = (value: any) => {
-    console.log(new Date(value[0]))
-    console.log(new Date(value[1]))
     setDate(value)
   }
 
