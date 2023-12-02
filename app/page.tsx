@@ -35,6 +35,7 @@ const Home = () => {
     const startDate = params.get('startDate') || null
     const location = params.getAll('location') || null
     const radius = params.get('radius') || null
+    const category = params.get('category') || null
 
     return {
       endDate: endDate,
@@ -44,7 +45,8 @@ const Home = () => {
         location && location.length === 2
           ? [Number(location[0]), Number(location[1])]
           : null,
-      radius: Number(radius)
+      radius: Number(radius),
+      category: category
     }
   }
 
