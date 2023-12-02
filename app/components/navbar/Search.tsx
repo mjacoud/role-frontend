@@ -28,12 +28,12 @@ items-center
 justify-between"
       >
         <div className="px-6 text-sm font-semibold">Onde</div>
-        <div className="hidden flex-1 border-x-[1px] px-6 text-center text-sm font-semibold sm:block">
+        <div className="flex-1 border-x-[1px] px-6 text-center text-sm font-semibold sm:block">
           Quando
         </div>
 
         <div className="flex flex-row items-center gap-3 pl-6 pr-2 text-sm text-gray-600">
-          <div className="hidden sm:block">Quanto</div>
+          <div className=" sm:block">Quanto</div>
           <div className="rounded-full bg-amber-500 p-2 text-white">
             <BiSearch size={18} />
           </div>

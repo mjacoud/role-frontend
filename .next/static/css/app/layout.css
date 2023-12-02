@@ -757,6 +757,12 @@ video {
 .top-5 {
   top: 1.25rem;
 }
+.left-8 {
+  left: 2rem;
+}
+.left-10 {
+  left: 2.5rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -1091,6 +1097,12 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-0 {
+  padding: 0px;
+}
+.p-\[-1rem\] {
+  padding: -1rem;
 }
 .px-4 {
   padding-left: 1rem;

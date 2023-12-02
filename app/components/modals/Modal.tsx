@@ -133,9 +133,9 @@ export const Modal: React.FC<ModalProps> = ({
                 onClick={handleClose}
                 className="
               absolute 
-              left-9 
+              left-8 
               border-0
-              p-1
+              p-[-1rem]
               transition
               hover:opacity-70"
               >

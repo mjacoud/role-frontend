@@ -29,7 +29,7 @@ export const EventHead: React.FC<EventHead> = ({
         ${res.data.results[0].address_line2}`
       )
     })
-  }, [])
+  }, [url])
 
   return (
     <>

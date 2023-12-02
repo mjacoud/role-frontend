@@ -156,7 +156,7 @@ export const SearchModal = () => {
           </div>
           <div
             onClick={() => setStep(STEPS.DATE)}
-            className={`hidden h-full w-full  flex-1 justify-self-center border-x-[1px] px-6 py-2 text-center text-sm font-semibold hover:bg-amber-200 sm:block
+            className={`h-full w-full  flex-1 justify-self-center border-x-[1px] px-6 py-2 text-center text-sm font-semibold hover:bg-amber-200 sm:block
            `}
           >
             Data
@@ -168,7 +168,7 @@ export const SearchModal = () => {
           </div>
           <div
             onClick={() => setStep(STEPS.INFO)}
-            className={`hidden h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
+            className={`h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
           ${STEPS.DATE ? 'hover:bg-neutral-100' : ''}`}
           >
             Preço
@@ -224,7 +224,7 @@ export const SearchModal = () => {
           </div>
           <div
             onClick={() => setStep(STEPS.DATE)}
-            className={`hidden h-full w-full  flex-1 justify-self-center border-x-[1px] px-6 py-2 text-center text-sm font-semibold hover:bg-amber-200 sm:block
+            className={`h-full w-full  flex-1 justify-self-center border-x-[1px] px-6 py-2 text-center text-sm font-semibold hover:bg-amber-200 sm:block
             ${step === 1 ? 'bg-amber-500 text-white' : ''}`}
           >
             Data
@@ -236,7 +236,7 @@ export const SearchModal = () => {
           </div>
           <div
             onClick={() => setStep(STEPS.INFO)}
-            className={`hidden h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
+            className={`h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
           ${STEPS.DATE ? 'hover:bg-neutral-100' : ''}`}
           >
             Preço
@@ -284,7 +284,7 @@ export const SearchModal = () => {
           </div>
           <div
             onClick={() => setStep(STEPS.DATE)}
-            className={`hidden h-full w-full  flex-1 justify-self-center border-x-[1px] px-6 py-2 text-center text-sm font-semibold hover:bg-amber-200 sm:block
+            className={`h-full w-full  flex-1 justify-self-center border-x-[1px] px-6 py-2 text-center text-sm font-semibold hover:bg-amber-200 sm:block
           `}
           >
             Data
@@ -296,7 +296,7 @@ export const SearchModal = () => {
           </div>
           <div
             onClick={() => setStep(STEPS.INFO)}
-            className={`hidden h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
+            className={`h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
             ${step === STEPS.INFO ? 'bg-amber-500 text-white' : ''}`}
           >
             Preço
