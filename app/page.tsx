@@ -33,7 +33,7 @@ const Home = () => {
     const endDate = params.get('endDate') || null
     const price = params.get('price') || null
     const startDate = params.get('startDate') || null
-    const location = params.get('location') || null
+    const location = params.getAll('location') || null
     const radius = params.get('radius') || null
 
     return {
