@@ -10,7 +10,16 @@ import { Event } from './types'
 import toast from 'react-hot-toast'
 import { Loading } from './components/Loading'
 
-const Home = ({ searchParams }: any) => {
+interface SearchParams {
+  category?: string
+  startDate?: string
+  endDate?: string
+  price?: number
+  radius?: number
+  coordenates?: string
+}
+
+const Home = ({ searchParams }: { searchParams: SearchParams }) => {
   const [eventsData, setEventsData] = useState<Event[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -20,7 +29,6 @@ const Home = ({ searchParams }: any) => {
     axios
       .post('https://role-backend.onrender.com/getEvents', searchParams)
       .then(response => {
-        console.log(searchParams)
         console.log(searchParams)
         setEventsData(response.data)
       })
