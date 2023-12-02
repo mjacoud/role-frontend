@@ -17,6 +17,7 @@ interface SearchParams {
   startDate?: string | null
   coordenates?: number[] | null
   category?: string | null
+  radius?: number | null
 }
 
 const Home = () => {
@@ -32,17 +33,18 @@ const Home = () => {
     const endDate = params.get('endDate') || null
     const price = params.get('price') || null
     const startDate = params.get('startDate') || null
-    const coordenates = params.get('coordenates') || null
-
-    const coordenatesArray = coordenates
-      ? coordenates.split(',').map(Number)
-      : null
+    const location = params.get('location') || null
+    const radius = params.get('radius') || null
 
     return {
       endDate: endDate,
       price: Number(price),
       startDate: startDate,
-      coordenates: coordenatesArray
+      coordenates:
+        location && location.length === 2
+          ? [Number(location[0]), Number(location[1])]
+          : null,
+      radius: Number(radius)
     }
   }
 
