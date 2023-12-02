@@ -20,6 +20,7 @@ const Home = ({ searchParams }: any) => {
     axios
       .post('https://role-backend.onrender.com/getEvents', searchParams)
       .then(response => {
+        console.log(searchParams)
         setEventsData(response.data)
       })
       .catch(() => toast.error('Erro ao buscar eventos'))

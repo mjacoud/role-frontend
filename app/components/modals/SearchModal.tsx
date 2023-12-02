@@ -59,7 +59,7 @@ export const SearchModal = () => {
 
     const url = qs.stringifyUrl(
       {
-        url: '/getEvents/',
+        url: '/',
         query: updatedQuery
       },
       { skipNull: true }
