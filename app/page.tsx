@@ -25,8 +25,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const searchParams = useSearchParams()
 
-  console.log(parseUrlParams(searchParams.toString()))
-
   function parseUrlParams(url: string): SearchParams {
     const params = new URLSearchParams(url)
 
@@ -59,8 +57,6 @@ const Home = () => {
         parseUrlParams(searchParams.toString())
       )
       .then(response => {
-        console.log(parseUrlParams(searchParams.toString()))
-        console.log(searchParams.toString())
         setEventsData(response.data)
       })
       .catch(() => toast.error('Erro ao buscar eventos'))
