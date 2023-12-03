@@ -25,9 +25,15 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
           <Image
             alt="event"
             src={data.imageSrc}
-            className="h-full w-full object-cover transition group-hover:scale-110"
+            className="
+            
+            object-cover transition group-hover:scale-110 sm:h-[343px] sm:w-[343px] md:h-[286px] md:w-[286px] lg:h-[219px] lg:w-[219px] xl:h-[222px] xl:w-[222px]"
             fill
-            objectFit="cover"
+            sizes="(max-width:768px) 100vw"
+            quality={70}
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL={data.imageSrc}
           />
           <div className="absolute right-3 top-3">
             {/* <HeartButton eventId={data.id} currentUser={currentUser} /> */}
