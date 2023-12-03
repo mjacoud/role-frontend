@@ -10,4 +10,5 @@ export type Event = {
   price: number
   category: string
   eventSrc: string
+  thumbnailSrc: string
 }

@@ -24,13 +24,13 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
         <div className="relative aspect-square w-full overflow-hidden rounded-xl">
           <Image
             alt="event"
-            src={data.imageSrc}
+            src={data.thumbnailSrc}
             className="
             h-full
             w-full
-            object-cover transition group-hover:scale-110 sm:h-[242px] sm:w-[242px] md:h-[242px] md:w-[242px] lg:h-[219px] lg:w-[219px] xl:h-[366px] xl:w-[366px]"
-            width={343}
-            height={343}
+            object-cover transition group-hover:scale-110 sm:h-[242px] sm:w-[242px] md:h-[242px] md:w-[242px] lg:h-[267px] lg:w-[267px] xl:h-[366px] xl:w-[366px]"
+            width={100}
+            height={100}
             loading="lazy"
           />
           <div className="absolute right-3 top-3">

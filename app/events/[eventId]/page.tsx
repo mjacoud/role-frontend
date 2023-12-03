@@ -23,7 +23,6 @@ const EventPage = ({ params }: { params: IParams }) => {
       .post('https://role-backend.onrender.com/getEventById', params)
       .then(response => {
         setEventData(response.data)
-        console.log(params)
       })
       .catch(err => console.log(err))
       .finally(() => {
