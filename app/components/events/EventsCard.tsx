@@ -26,7 +26,9 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
             alt="event"
             src={data.imageSrc}
             className="
-            object-cover transition group-hover:scale-110 sm:h-[343px] sm:w-[343px] md:h-[286px] md:w-[286px] lg:h-[219px] lg:w-[219px] xl:h-[222px] xl:w-[222px]"
+            object-cover transition group-hover:scale-110 sm:h-[343px] sm:w-[343px] md:h-[286px] md:w-[286px] lg:h-[219px] lg:w-[219px] xl:h-[366px] xl:w-[366px]"
+            width={100}
+            height={100}
             loading="lazy"
             quality={70}
           />
