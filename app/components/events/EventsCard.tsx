@@ -30,7 +30,6 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
             width={100}
             height={100}
             loading="lazy"
-            quality={70}
           />
           <div className="absolute right-3 top-3">
             {/* <HeartButton eventId={data.id} currentUser={currentUser} /> */}
