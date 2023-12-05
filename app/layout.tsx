@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Rolé',
   description: 'Seu Rolé Cultural em SP'
 }
+
+/* FAVICON */
+
 /* FONT */
 
 import { Nunito } from 'next/font/google'
@@ -39,6 +42,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />
