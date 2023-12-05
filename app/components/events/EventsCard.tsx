@@ -31,7 +31,7 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
             object-cover transition group-hover:scale-110 sm:h-[350px] sm:w-[350px] md:h-[350px] md:w-[350px] lg:h-[267px] lg:w-[267px] xl:h-[366px] xl:w-[366px]"
             width={500}
             height={500}
-            loading="lazy"
+            loading="eager"
           />
           <div className="absolute right-3 top-3">
             {/* <HeartButton eventId={data.id} currentUser={currentUser} /> */}
