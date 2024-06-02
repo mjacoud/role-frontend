@@ -8,7 +8,6 @@ import { categories } from '../navbar/Categories'
 import { CategoryInput } from '../Inputs/CategoryInput'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { LocationInput, locationObject } from '../Inputs/LocaltionInput'
-import Calendar from 'react-calendar'
 
 import dynamic from 'next/dynamic'
 
@@ -17,7 +16,6 @@ import { Input } from '../Inputs/Input'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
-import 'react-calendar/dist/Calendar.css'
 
 enum STEPS {
   CATEGORY = 0,
@@ -210,7 +208,7 @@ export const PublishEventModal = () => {
           required
         />
         <div className="flex items-center justify-center">
-          <Calendar onChange={handleDate} selectRange />
+          {/* <Calendar onChange={handleDate} selectRange /> */}
         </div>
       </div>
     )

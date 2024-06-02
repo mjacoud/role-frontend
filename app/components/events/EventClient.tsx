@@ -5,14 +5,9 @@ import { categories } from '@/app/components/navbar/Categories'
 
 import { EventHead } from './EventHead'
 import { EventInfo } from './EventInfo'
-import { EventPrice } from './EventPrice'
 import dynamic from 'next/dynamic'
 import { Event } from '@/app/types'
-import Link from 'next/link'
 
-const NoSSRCalendar = dynamic(() => import('../events/EventCalendar'), {
-  ssr: false
-})
 
 const Map = dynamic(() => import('../LocalMap'), {
   ssr: false
@@ -35,15 +30,16 @@ export const EventClient = ({ event }: { event: Event }) => {
               category={category}
               coordenates={event.coordenates}
               description={event.description}
-              dateRange={[event.startDate, event.endDate]}
-              eventSrc={event.eventSrc}
-              location={event.location}
+              
+              /* dateRange={[event.startDate, event.endDate]} */
+              /* eventSrc={event.eventSrc} */
+              location={event.address}
             />
             <div className="order-first mb-10 md:order-last md:col-span-3">
               <div className="overflow-hidden rounded-xl border-[1px] border-neutral-200 bg-white ">
-                <EventPrice price={event.price} />
+              {/*   <EventPrice price={event.price} /> */}
                 <div className="py-10">
-                  <NoSSRCalendar dateRange={[event.startDate, event.endDate]} />
+                 {/*  <NoSSRCalendar dateRange={[event.startDate, event.endDate]} /> */}
                 </div>
 
                 <hr />
@@ -65,13 +61,13 @@ export const EventClient = ({ event }: { event: Event }) => {
     disabled:cursor-not-allowed
     "
                   >
-                    <Link
+                    {/* <Link
                       href={event.eventSrc}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Ir para o site
-                    </Link>
+                    </Link> */}
                   </button>
                 </div>
               </div>

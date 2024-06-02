@@ -21,7 +21,7 @@ export const EventCategory: React.FC<EventCategoryProps> = ({
           className="text-neutral-600"
           alt="categoria"
         />
-        {label}
+        {label.slice(0,label.length-1)}
       </div>
     </div>
   )

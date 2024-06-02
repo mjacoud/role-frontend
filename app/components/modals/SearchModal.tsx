@@ -3,15 +3,13 @@
 import { Modal } from './Modal'
 import { useCallback, useMemo, useState } from 'react'
 import { LocationInput, locationObject } from '../Inputs/LocaltionInput'
-import Calendar from 'react-calendar'
 
 import dynamic from 'next/dynamic'
 import { useRouter, useSearchParams } from 'next/navigation'
-import 'react-calendar/dist/Calendar.css'
 import { useSearchModal } from '@/app/hooks/useSearchModal'
 
 import qs from 'query-string'
-import { formatISO } from 'date-fns'
+
 
 enum STEPS {
   LOCATION = 0,
@@ -46,11 +44,11 @@ export const SearchModal = () => {
       updatedQuery.location = location
       updatedQuery.radius = radius
     }
-    if (date.length !== 0) {
+    /* if (date.length !== 0) {
       updatedQuery.startDate = formatISO(date[0])
       updatedQuery.endDate = formatISO(date[1])
     }
-
+ */
     if (price) {
       updatedQuery.price = price
     } else {
@@ -248,7 +246,7 @@ export const SearchModal = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <Calendar onChange={handleDate} selectRange />
+         {/*  <Calendar onChange={handleDate} selectRange /> */}
         </div>
       </div>
     )

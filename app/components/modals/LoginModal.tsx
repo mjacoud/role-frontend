@@ -9,7 +9,6 @@ import { Input } from '../Inputs/Input'
 import { toast } from 'react-hot-toast'
 import { Button } from '../Button'
 import { useLoginModal } from '@/app/hooks/useLoginModal'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useRegisterModal } from '@/app/hooks/useRegisterModal'
 
@@ -33,7 +32,7 @@ export const LoginModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = data => {
     setIsLoading(true)
 
-    signIn('credentials', {
+    /* signIn('credentials', {
       ...data,
       redirect: false
     }).then(callback => {
@@ -48,8 +47,8 @@ export const LoginModal = () => {
         toast.error(callback.error)
       }
     })
+  } */
   }
-
   const toggle = useCallback(() => {
     loginModal.onClose()
     registerModal.onOpen()
@@ -86,14 +85,14 @@ export const LoginModal = () => {
   const footerContent = (
     <div className="mt-3 flex flex-col gap-4">
       <hr />
-      <Button
+     {/*  <Button
         outline
         label="Faça login com sua conta Google"
         icon={FcGoogle}
         onClick={() => {
           signIn('google')
         }}
-      />
+      /> */}
       <div className="flex flex-row items-center justify-center gap-2">
         <div>Você já tem uma conta?</div>
         <div
@@ -118,4 +117,5 @@ export const LoginModal = () => {
       footer={footerContent}
     />
   )
-}
+
+  }

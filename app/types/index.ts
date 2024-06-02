@@ -1,14 +1,13 @@
 export type Event = {
   _id: string
-  imageSrc: string
-  title: string
-  description: string
-  coordenates: number[]
-  location: string
-  startDate: Date
-  endDate: Date
-  price: number
-  category: string
-  eventSrc: string
-  thumbnailSrc: string
+  category: string,
+  title: string,
+  description: string,
+  address:string,
+  coordenates: [number],
+  workingHours:{
+    string:[number]
+  },
+  imageSrc: string,
+  thumbnailSrc: string,
 }

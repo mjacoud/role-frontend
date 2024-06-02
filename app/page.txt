@@ -27,11 +27,18 @@ const Home = () => {
 
   function parseUrlParams(url: string): SearchParams {
     const params = new URLSearchParams(url)
-    const location = params.getAll('address') || null
+
+    const endDate = params.get('endDate') || null
+    const price = params.get('price') || null
+    const startDate = params.get('startDate') || null
+    const location = params.getAll('location') || null
     const radius = params.get('radius') || null
     const category = params.get('category') || null
 
     return {
+      endDate: endDate,
+      price: Number(price),
+      startDate: startDate,
       coordenates:
         location && location.length === 2
           ? [Number(location[0]), Number(location[1])]
@@ -46,9 +53,8 @@ const Home = () => {
 
     axios
       .post(
-        'http://localhost:4500/getEvents',
+        'https://role-backend.onrender.com/getEvents',
         parseUrlParams(searchParams.toString())
-        
       )
       .then(response => {
         setEventsData(response.data)
@@ -62,7 +68,6 @@ const Home = () => {
   useEffect(() => {
     fetchEvents()
   }, [searchParams])
-  
 
   if (eventsData.length === 0) {
     return (
@@ -71,7 +76,6 @@ const Home = () => {
       </ClientOnly>
     )
   }
-
 
   return (
     <ClientOnly>

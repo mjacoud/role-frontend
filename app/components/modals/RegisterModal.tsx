@@ -10,7 +10,6 @@ import { Heading } from '../Heading'
 import { Input } from '../Inputs/Input'
 import { toast } from 'react-hot-toast'
 import { Button } from '../Button'
-import { signIn } from 'next-auth/react'
 import { useLoginModal } from '@/app/hooks/useLoginModal'
 
 export const RegisterModal = () => {
@@ -94,14 +93,14 @@ export const RegisterModal = () => {
   const footerContent = (
     <div className="mt-3 flex flex-col gap-4">
       <hr />
-      <Button
+    {/*   <Button
         outline
         label="Faça login com sua conta Google"
         icon={FcGoogle}
         onClick={() => {
           signIn('google')
         }}
-      />
+      /> */}
       <div className="flex flex-row items-center justify-center gap-2">
         <div>Você já tem uma conta?</div>
         <div
