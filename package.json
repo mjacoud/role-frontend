@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.666.0",
+    "@aws-sdk/s3-request-presigner": "^3.666.0",
     "@geoapify/geocoder-autocomplete": "^1.5.1",
     "@geoapify/react-geocoder-autocomplete": "^1.5.0",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "aws-sdk": "^2.1691.0",
     "axios": "^1.4.0",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
