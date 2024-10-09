@@ -52,7 +52,7 @@ const Home = () => {
 
     axios
       .post(
-        'http://localhost:4500/getEvents',
+        'https://role-backend.onrender.com',
         parseUrlParams(searchParams.toString())
       )
       .then(response => {
