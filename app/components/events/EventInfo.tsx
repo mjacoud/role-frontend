@@ -7,10 +7,7 @@ import parse from 'html-react-parser'
 
 interface EventInfoProps {
   description: string
-
-  location: string
   coordenates: number[]
-
   category:
     | {
         icon: StaticImageData
@@ -22,7 +19,6 @@ interface EventInfoProps {
 export const EventInfo: React.FC<EventInfoProps> = ({
   category,
   description,
-  location
 }) => {
   return (
     <div className="col-span-4 flex flex-col gap-8">

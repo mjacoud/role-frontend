@@ -4,10 +4,15 @@ export type Event = {
   title: string,
   description: string,
   address:string,
-  coordenates: [number],
+  price:number,
+  latitude:number,
+  longitude:number,
+  startDate:string,
+  endDate:string,
   workingHours:{
     string:[number]
   },
   imageSrc: string,
   thumbnailSrc: string,
+  eventSrc:string
 }

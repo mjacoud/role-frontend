@@ -72,6 +72,7 @@ export const LocationInput: React.FC<LocationProps> = ({
   radius,
   handleRadius
 }) => {
+  console.log(`valor:${value}`)
   return (
     <>
       <GeoapifyContext apiKey={process.env.NEXT_PUBLIC_AUTOCOMPLETE_API_KEY}>
@@ -90,11 +91,12 @@ export const LocationInput: React.FC<LocationProps> = ({
           </div>
           <input
             type="number"
-            className="border border-slate-500"
+            className="border border-slate-500 rounded-3xl text-center visible [appearance:textfield] [&::-webkit-outer-spin-button]:visible [&::-webkit-inner-spin-button]:visible"
             placeholder="Raio"
             value={radius}
             onChange={e => handleRadius!(Number(e.target.value))}
-            max="10000"
+            max="50"
+            min='1'
           />
         </div>
       </GeoapifyContext>

@@ -2,13 +2,15 @@
 
 import { Modal } from './Modal'
 import { useCallback, useMemo, useState } from 'react'
-import { LocationInput, locationObject } from '../Inputs/LocaltionInput'
+import { LocationInput, locationObject } from '../Inputs/LocationInput'
 
 import dynamic from 'next/dynamic'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useSearchModal } from '@/app/hooks/useSearchModal'
 
 import qs from 'query-string'
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css'
 
 
 enum STEPS {
@@ -23,57 +25,62 @@ export const SearchModal = () => {
   const searchModal = useSearchModal()
 
   const [step, setStep] = useState(STEPS.LOCATION)
-  const [location, setLocation] = useState<number[]>([-23.545271, -46.6337751])
-  const [date, setDate] = useState([])
+  const [coordenates, setCoordenates] = useState<number[]>([-23.545271, -46.6337751])
+  const [date, setDate] = useState<string[]>(['',''])
   const [isLoading, setIsLoading] = useState(false)
   const [price, setPrice] = useState<number | undefined>(undefined)
   const [radius, setRadius] = useState(1)
 
   const onSubmit = useCallback(async () => {
+    
     setIsLoading(true)
-
+  
     let currentQuery = {}
-
+  
     if (params) {
       currentQuery = qs.parse(params.toString())
     }
-
+  
     let updatedQuery: any = { ...currentQuery }
-
-    if (location[0] !== -23.545271 && location[1] !== -46.6337751) {
-      updatedQuery.location = location
+  
+    if (coordenates[0] !== -23.545271 && coordenates[1] !== -46.6337751) {
+      updatedQuery.latitude = coordenates[0]
+      updatedQuery.longitude = coordenates[1]
       updatedQuery.radius = radius
     }
-    /* if (date.length !== 0) {
-      updatedQuery.startDate = formatISO(date[0])
-      updatedQuery.endDate = formatISO(date[1])
-    }
- */
-    if (price) {
-      updatedQuery.price = price
-    } else {
-      updatedQuery.price = 0
+  
+    if (date[0] != '' && date[1] !=''){
+      updatedQuery.startDate = convertDate(date[0])
+      updatedQuery.endDate = convertDate(date[1])
     }
 
+    if (price == null || price == 0) {
+      updatedQuery.price = null
+    } else {
+      updatedQuery.price = price
+    }
+  
     const url = qs.stringifyUrl(
       {
         url: '/',
-        query: updatedQuery
+        query:updatedQuery
       },
       { skipNull: true }
     )
 
-    setStep(STEPS.LOCATION)
-    searchModal.onClose()
-    setIsLoading(false)
-
-    router.push(url)
-  }, [step, searchModal, location, router, date, params, price, radius])
+      router.push(url)
+      console.log('updatedquery: ', updatedQuery)
+      setStep(STEPS.LOCATION)
+      searchModal.onClose()
+      setIsLoading(false) // Sempre desative o carregamento no final
+    
+  }, [step, searchModal, coordenates,router, date, params, price, radius])
+  
 
   const secondaryAction = () => {
-    setDate([])
+    setDate(['',''])
     setPrice(undefined)
-    setLocation([-23.545271, -46.6337751])
+    setCoordenates([-23.545271, -46.6337751])
   }
 
   const actionLabel = useMemo(() => {
@@ -86,20 +93,28 @@ export const SearchModal = () => {
 
   const Map = useMemo(
     () => dynamic(() => import('../LocalMap'), { ssr: false }),
-    [location, radius]
+    [coordenates, radius]
   )
 
-  const onSelectLocation = (value: locationObject) => {
+  const onSelectCoordenates = (value: locationObject) => {
     if (!value) {
-      return setLocation([-23.545271, -46.6337751])
+      return setCoordenates([-23.545271, -46.6337751])
     } else {
-      return setLocation([value.properties.lat, value.properties.lon])
+      return setCoordenates([value.properties.lat, value.properties.lon])
     }
   }
 
-  const handleDate = (value: any) => {
-    setDate(value)
+
+  const convertDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const isoString = date.toISOString();
+  return isoString.replace('Z', '+0000');
+  };
+
+  const handleDate = (value:any) =>{
+    return setDate(value)
   }
+
 
   const handleRadius = (value: number) => {
     setRadius(value)
@@ -146,7 +161,7 @@ export const SearchModal = () => {
             ${step === 0 ? 'bg-amber-500 text-white' : ''}`}
           >
             Localização
-            {location[0] !== -23.545271 ? (
+            {coordenates[0] !== -23.545271 ? (
               <div className="rounded-2xl border-2 border-red-500"></div>
             ) : (
               ''
@@ -178,13 +193,13 @@ export const SearchModal = () => {
           </div>
         </div>
         <LocationInput
-          onChange={onSelectLocation}
+          onChange={onSelectCoordenates}
           radius={radius}
           handleRadius={handleRadius}
         />
 
         <Map
-          center={location || [-23.545271, -46.6337751]}
+          center={coordenates || [-23.545271, -46.6337751]}
           overlay
           radius={radius}
         />
@@ -214,7 +229,7 @@ export const SearchModal = () => {
             `}
           >
             Localização
-            {location[0] !== -23.545271 ? (
+            {coordenates[0] !== -23.545271 ? (
               <div className="rounded-2xl border-2 border-red-500"></div>
             ) : (
               ''
@@ -246,7 +261,7 @@ export const SearchModal = () => {
           </div>
         </div>
         <div className="flex justify-center">
-         {/*  <Calendar onChange={handleDate} selectRange /> */}
+          <Calendar onChange={handleDate} selectRange />
         </div>
       </div>
     )
@@ -274,7 +289,7 @@ export const SearchModal = () => {
             `}
           >
             Localização
-            {location[0] !== -23.545271 ? (
+            {coordenates[0] !== -23.545271 ? (
               <div className="rounded-2xl border-2 border-red-500"></div>
             ) : (
               ''

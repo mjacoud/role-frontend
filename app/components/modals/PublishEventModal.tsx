@@ -7,7 +7,7 @@ import { Heading } from '../Heading'
 import { categories } from '../navbar/Categories'
 import { CategoryInput } from '../Inputs/CategoryInput'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
-import { LocationInput, locationObject } from '../Inputs/LocaltionInput'
+import { LocationInput, locationObject } from '../Inputs/LocationInput'
 
 import dynamic from 'next/dynamic'
 

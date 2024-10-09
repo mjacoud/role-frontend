@@ -10,6 +10,7 @@ interface EventsCardProps {
 }
 
 export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
+
   const category = categories.find(item => item.label === data.category)
   const router = useRouter()
 
@@ -20,7 +21,7 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
     >
       <div className="flex w-full flex-col gap-2">
         <div className="relative aspect-square w-full overflow-hidden rounded-xl">
-          <Image
+           <Image
             alt="event"
             src={data.thumbnailSrc}
             className="
@@ -30,28 +31,28 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
             width={500}
             height={500}
             loading="eager"
-          />
+          /> 
           <div className="absolute right-3 top-3">
             {/* <HeartButton eventId={data.id} currentUser={currentUser} /> */}
           </div>
-          {/* <div className="absolute bottom-0 right-0 flex h-8 w-32 items-center justify-center rounded-tl-3xl bg-amber-500">
+          <div className="absolute bottom-0 right-0 flex h-8 w-32 items-center justify-center rounded-tl-3xl bg-amber-500">
             <div className="font-bold">
               
                {data.price > 0
                 ? `R$${data.price} | R$${data.price / 2}`
                 : 'Grátis'} 
             </div>
-          </div> */}
+          </div> *
         </div>
         <div className="text-lg font-semibold">{data.title}</div>
         <div className="flex items-center gap-4 font-light text-neutral-500">
           <Image
             alt="event-category"
-            src={category!.icon}
+            src={category ? category.icon : ''}
             width={35}
             height={35}
           /> 
-
+ 
           {`${data.category.slice(0,data.category.length-1)}`}
         </div>
 

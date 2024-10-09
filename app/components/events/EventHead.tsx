@@ -22,6 +22,7 @@ export const EventHead: React.FC<EventHead> = ({
   const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${coordenates[0]}&lon=${coordenates[1]}&format=json&apiKey=${process.env.NEXT_PUBLIC_AUTOCOMPLETE_API_KEY}`
   
   console.log(address)
+
   useEffect(() => {
     axios.get(url).then(res => {
       setAddress(

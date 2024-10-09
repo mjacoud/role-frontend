@@ -6,7 +6,7 @@ import { Loading } from '@/app/components/Loading'
 import { EventClient } from '@/app/components/events/EventClient'
 import { Event } from '@/app/types'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 interface IParams {
   eventId?: string
@@ -16,7 +16,7 @@ const EventPage = ({ params }: { params: IParams }) => {
   const [eventData, setEventData] = useState<Event | undefined>(undefined)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  const fetchEventById = () => {
+  const fetchEventById = useCallback(() => {
     setIsLoading(true)
 
     axios
@@ -28,11 +28,11 @@ const EventPage = ({ params }: { params: IParams }) => {
       .finally(() => {
         setIsLoading(false)
       })
-  }
+  }, [params]) // Adiciona 'params' como dependência
 
   useEffect(() => {
     fetchEventById()
-  }, [])
+  }, [fetchEventById])
 
   if (!eventData) {
     return <ClientOnly>{isLoading ? <Loading /> : <EmptyState />}</ClientOnly>

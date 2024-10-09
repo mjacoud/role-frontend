@@ -13,11 +13,12 @@ import { useSearchParams } from 'next/navigation'
 
 interface SearchParams {
   endDate?: string | null
-  price?: number | null
+  price?: string | number | undefined | null
   startDate?: string | null
-  coordenates?: number[] | null
   category?: string | null
   radius?: number | null
+  latitude?:number| null
+  longitude?:number| null
 }
 
 const Home = () => {
@@ -27,16 +28,21 @@ const Home = () => {
 
   function parseUrlParams(url: string): SearchParams {
     const params = new URLSearchParams(url)
-    const location = params.getAll('address') || null
+    const latitude =params.get('latitude') || null
+    const longitude =params.get('longitude') || null
     const radius = params.get('radius') || null
     const category = params.get('category') || null
+    const startDate = params.get('startDate') || null
+    const endDate = params.get('endDate') || null
+    const price = params.get('price') || null
 
     return {
-      coordenates:
-        location && location.length === 2
-          ? [Number(location[0]), Number(location[1])]
-          : null,
+      latitude:Number(latitude),
+      longitude:Number(longitude),
       radius: Number(radius),
+      price:price,
+      startDate: startDate,
+      endDate: endDate,
       category: category
     }
   }
@@ -48,7 +54,6 @@ const Home = () => {
       .post(
         'http://localhost:4500/getEvents',
         parseUrlParams(searchParams.toString())
-        
       )
       .then(response => {
         setEventsData(response.data)

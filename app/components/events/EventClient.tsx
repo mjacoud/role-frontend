@@ -7,6 +7,9 @@ import { EventHead } from './EventHead'
 import { EventInfo } from './EventInfo'
 import dynamic from 'next/dynamic'
 import { Event } from '@/app/types'
+import { EventPrice } from './EventPrice'
+import NoSSRCalendar from 'react-calendar'
+import Link from 'next/link'
 
 
 const Map = dynamic(() => import('../LocalMap'), {
@@ -21,29 +24,25 @@ export const EventClient = ({ event }: { event: Event }) => {
       <div className="mx-auto max-w-screen-lg">
         <div className="flex flex-col gap-6">
           <EventHead
-            title={event.title}
+            title={event.title} 
             imageSrc={event.imageSrc}
-            coordenates={event.coordenates}
+            coordenates={[event.latitude,event.longitude]}
           />
           <div className="mt-6 grid grid-cols-1 md:grid-cols-7 md:gap-10">
             <EventInfo
               category={category}
-              coordenates={event.coordenates}
+              coordenates={[event.latitude,event.longitude]}
               description={event.description}
-              
-              /* dateRange={[event.startDate, event.endDate]} */
-              /* eventSrc={event.eventSrc} */
-              location={event.address}
             />
             <div className="order-first mb-10 md:order-last md:col-span-3">
               <div className="overflow-hidden rounded-xl border-[1px] border-neutral-200 bg-white ">
-              {/*   <EventPrice price={event.price} /> */}
-                <div className="py-10">
-                 {/*  <NoSSRCalendar dateRange={[event.startDate, event.endDate]} /> */}
+                <EventPrice price={event.price} /> 
+                <div className="py-10 flex justify-center">
+                  <NoSSRCalendar  value={[new Date(event.startDate), new Date(event.endDate)]} /> 
                 </div>
 
                 <hr />
-                <Map center={event.coordenates} />
+                <Map center={[event.latitude,event.longitude]} />
                 <div className="flex flex-row items-center justify-between p-4 py-5 text-lg font-semibold">
                   <button
                     className="disabled:opacity:70
@@ -61,13 +60,13 @@ export const EventClient = ({ event }: { event: Event }) => {
     disabled:cursor-not-allowed
     "
                   >
-                    {/* <Link
+                    <Link
                       href={event.eventSrc}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Ir para o site
-                    </Link> */}
+                    </Link> 
                   </button>
                 </div>
               </div>
