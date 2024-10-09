@@ -6,7 +6,6 @@ import { useCallback, useState } from 'react'
 import { MenuItem } from './MenuItem'
 import { useRegisterModal } from '@/app/hooks/useRegisterModal'
 import { useLoginModal } from '@/app/hooks/useLoginModal'
-import { signOut } from 'next-auth/react'
 import { usePublishEventModal } from '@/app/hooks/usePublishEventModal'
 import { useRouter } from 'next/navigation'
 
