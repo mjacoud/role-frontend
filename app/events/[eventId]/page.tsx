@@ -20,7 +20,7 @@ const EventPage = ({ params }: { params: IParams }) => {
     setIsLoading(true)
 
     axios
-      .post('http://localhost:4500/getEventById', params)
+      .post('https://role-backend.onrender.com/getEventById', params)
       .then(response => {
         setEventData(response.data)
       })
