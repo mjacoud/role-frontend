@@ -49,7 +49,7 @@ export default async function RootLayout({
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />
-          <Suspense>
+          <Suspense fallback={<div>loading...</div>}>
             <SearchModal />
           </Suspense>
           <LoginModal />
