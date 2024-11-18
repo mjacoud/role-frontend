@@ -47,11 +47,10 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={nunito.className}>
+          <Suspense fallback={<div>loading...</div>}>
         <ClientOnly>
           <ToasterProvider />
-          <Suspense fallback={<div>loading...</div>}>
             <SearchModal />
-          </Suspense>
           <LoginModal />
           <RegisterModal />
           <PublishEventModal />
@@ -61,6 +60,7 @@ export default async function RootLayout({
 
           {children}
 
+          </Suspense>
       </body>
     </html>
   )
