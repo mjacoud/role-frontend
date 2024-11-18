@@ -32,6 +32,7 @@ import { RegisterModal } from './components/modals/RegisterModal'
 import { LoginModal } from './components/modals/LoginModal'
 import { PublishEventModal } from './components/modals/PublishEventModal'
 import { SearchModal } from './components/modals/SearchModal'
+import { Suspense } from 'react'
 
 /* SERVER ACTIONS */
 
@@ -55,7 +56,9 @@ export default async function RootLayout({
           <Navbar />
         </ClientOnly>
         <div className="pb-20 pt-28"></div>
-        {children}
+        <Suspense>
+          {children}
+        </Suspense>
       </body>
     </html>
   )
