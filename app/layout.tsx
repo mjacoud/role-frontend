@@ -49,16 +49,18 @@ export default async function RootLayout({
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />
-          <SearchModal />
+          <Suspense>
+            <SearchModal />
+          </Suspense>
           <LoginModal />
           <RegisterModal />
           <PublishEventModal />
           <Navbar />
         </ClientOnly>
         <div className="pb-20 pt-28"></div>
-        <Suspense>
+
           {children}
-        </Suspense>
+
       </body>
     </html>
   )
