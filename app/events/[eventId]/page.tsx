@@ -6,13 +6,14 @@ import { Loading } from '@/app/components/Loading'
 import { EventClient } from '@/app/components/events/EventClient'
 import { Event } from '@/app/types'
 import axios from 'axios'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, use } from 'react';
 
 interface IParams {
   eventId?: string
 }
 
-const EventPage = ({ params }: { params: IParams }) => {
+const EventPage = (props: { params: Promise<IParams> }) => {
+  const params = use(props.params);
   const [eventData, setEventData] = useState<Event | undefined>(undefined)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
