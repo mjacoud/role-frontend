@@ -133,7 +133,7 @@ export const Modal: React.FC<ModalProps> = ({
                 onClick={handleClose}
                 className="
               absolute 
-              left-8 
+              right-8 
               border-0
               p-[-1rem]
               transition

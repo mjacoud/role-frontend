@@ -28,7 +28,7 @@ export const SearchModal = () => {
   const [coordenates, setCoordenates] = useState<number[]>([-23.545271, -46.6337751])
   const [date, setDate] = useState<string[]>(['',''])
   const [isLoading, setIsLoading] = useState(false)
-  const [price, setPrice] = useState<number | undefined>(undefined)
+  const [price, setPrice] = useState<number | undefined>(0)
   const [radius, setRadius] = useState(1)
 
   const onSubmit = useCallback(async () => {
@@ -74,7 +74,7 @@ export const SearchModal = () => {
       searchModal.onClose()
       setIsLoading(false) // Sempre desative o carregamento no final
     
-  }, [step, searchModal, coordenates,router, date, params, price, radius])
+  }, [searchModal, coordenates,router, date, params, price, radius])
   
 
   const secondaryAction = () => {
@@ -182,7 +182,7 @@ export const SearchModal = () => {
           <div
             onClick={() => setStep(STEPS.INFO)}
             className={`h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
-          ${STEPS.DATE ? 'hover:bg-neutral-100' : ''}`}
+          hover:bg-neutral-100`}
           >
             Preço
             {price || price === 0 ? (
@@ -250,7 +250,7 @@ export const SearchModal = () => {
           <div
             onClick={() => setStep(STEPS.INFO)}
             className={`h-full w-full flex-1 justify-self-center rounded-e-2xl px-6 py-2 text-center text-sm font-semibold sm:block
-          ${STEPS.DATE ? 'hover:bg-neutral-100' : ''}`}
+          hover:bg-neutral-100`}
           >
             Preço
             {price || price === 0 ? (
@@ -261,7 +261,7 @@ export const SearchModal = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <Calendar onChange={handleDate} selectRange />
+          <Calendar onChange={handleDate} selectRange defaultValue={new Date()}/>
         </div>
       </div>
     )

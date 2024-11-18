@@ -27,7 +27,7 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
             className="
             h-full
             w-full
-            object-cover transition group-hover:scale-110 sm:h-[350px] sm:w-[350px] md:h-[350px] md:w-[350px] lg:h-[267px] lg:w-[267px] xl:h-[267px] xl:w-[267px]"
+            object-cover transition group-hover:scale-110 sm:h-[350px] sm:w-[350px] md:h-[350px] md:w-[350px] lg:h-[267px] lg:w-[267px] xl:h-[350px] xl:w-[350px]"
             width={500}
             height={500}
             loading="eager"
@@ -43,7 +43,7 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
                 ? `R$${data.price} | R$${data.price / 2}`
                 : 'Grátis'} 
             </div>
-          </div> *
+          </div>
         </div>
         <div className="text-lg font-semibold">{data.title}</div>
         <div className="flex items-center gap-4 font-light text-neutral-500">
