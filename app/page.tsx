@@ -49,7 +49,8 @@ const Home = () => {
 
   const fetchEvents = () => {
     setIsLoading(true)
-
+    console.log(`Search Params: ${searchParams.toString()}`)
+    
     axios
       .post(
         'https://role-backend.onrender.com/getEvents',
