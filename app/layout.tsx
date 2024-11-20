@@ -5,7 +5,6 @@ import './globals.css'
 /* META DATA */
 
 import type { Metadata } from 'next'
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: 'Rolé',
@@ -60,7 +59,6 @@ export default async function RootLayout({
         <div className="pb-20 pt-28"></div>
 
           {children}
-        <SpeedInsights/>
           </Suspense>
       </body>
     </html>
