@@ -33,7 +33,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'role-files-bucket.s3.us-west-2.amazonaws.com',
+        hostname: 'd3qr9lw7djh8oq.cloudfront.net',
         port: '',
         pathname: '/**',
         search: '',
