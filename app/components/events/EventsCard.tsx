@@ -19,15 +19,15 @@ export const EventsCard: React.FC<EventsCardProps> = ({ data }) => {
       className="group col-span-1 cursor-pointer"
       onClick={() => router.push(`/events/${data._id}`)}
     >
-      <div className="flex w-full flex-col gap-2">
-        <div className="relative aspect-square w-full overflow-hidden rounded-xl">
+      <div className="flex w-full h-full flex-col gap-2">
+        <div className="relative aspect-square w-full h-full overflow-hidden rounded-xl bg-">
            <Image
             alt="event"
-            src={data.thumbnailSrc}
+            src={data.imageSrc}
             className="
             h-full
             w-full
-            object-cover transition group-hover:scale-110 sm:h-[350px] sm:w-[350px] md:h-[350px] md:w-[350px] lg:h-[267px] lg:w-[267px] xl:h-[350px] xl:w-[350px]"
+            object-cover transition group-hover:scale-110 sm:h-[350px] sm:w-[350px] md:h-[350px] md:w-[350px] lg:h-[267px] lg:w-[267px] xl:h-[390px] xl:w-[390px]"
             width={500}
             height={500}
           /> 
