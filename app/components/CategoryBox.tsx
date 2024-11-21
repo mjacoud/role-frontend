@@ -50,6 +50,7 @@ export const CategoryBox: React.FC<CategoryBoxProps> = ({
     <div
       onClick={handleClick}
       className={`
+        group
     flex
     cursor-pointer
     flex-col
@@ -63,14 +64,16 @@ export const CategoryBox: React.FC<CategoryBoxProps> = ({
     ${selected ? 'text-neutral-800' : 'text-neutral-500'}
     `}
     >
-      <Image src={icon} width={50} height={50} alt={label} />
-      <div
-        className="
-text-sm
-font-medium"
-      >
-        {label}
+        <Image src={icon} width={50} height={50} alt={label} className='group-hover:scale-110'/>
+        <div
+          className="
+          text-sm
+          font-medium
+          group-hover:scale-110
+          "
+        >
+          {label}
+        </div>
       </div>
-    </div>
   )
 }
