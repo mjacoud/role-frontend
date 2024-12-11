@@ -33,7 +33,7 @@ A interface intuitiva e amigável do Rolé torna a navegação uma brisa. Encont
 ##  🏛️ Instituições disponíveis 🏛️
 
 
--  🖼️ [MIS](https://www.mis-sp.org.br/)
+## 🚧 Em Desenvolvimento 🚧 
 
 Quer pedir alguma instituição? Enviei para nós! => **[Entre em contato](https://github.com/mjacoud/role-frontend/issues/new/choose)**
 
